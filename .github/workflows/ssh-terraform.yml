@@ -16,13 +16,13 @@ jobs:
           SshPort: ${{ secrets.TEL_SSH_PORT }}
           SshUser: ${{ secrets.TEL_SSH_USER }}
           SshPrivateKey: ${{ secrets.GHA_SSH_PRIVATE_KEY }}
-          RemotePath: "~/build/containers/dev/k3s"
+          RemotePath: "~/build/containers/snb/k3s"
           BackendConfig: >
             {
               "endpoint": "${{ vars.MINIO_ADM_S3_ENDPOINT }}",
               "access_key": "${{ secrets.MINIO_ADM_SA_ACCESS_KEY }}",
               "secret_key": "${{ secrets.MINIO_ADM_SA_SECRET_KEY }}",
-              "bucket": "bucket-platform-state-dev",
+              "bucket": "bucket-platform-state-snb",
               "key": "docker/k3s-cluster/tfstate.json",
               "region": "main",
               "skip_credentials_validation": true,
