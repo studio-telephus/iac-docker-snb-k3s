@@ -22,8 +22,8 @@ module "container_loadbalancer_slb" {
       ipv4_address = local.fixed_registration_ip
     }
   ]
-  bind_port           = 6443
-  servers             = [for item in local.containers_server : {
+  bind_port = 6443
+  servers = [for item in local.containers_server : {
     address : item.ipv4_address,
     port : 6443
   }]
@@ -40,8 +40,8 @@ module "container_loadbalancer_alb" {
       ipv4_address = local.workload_ip
     }
   ]
-  bind_port           = 443
-  servers             = [for item in local.containers_server : {
+  bind_port = 443
+  servers = [for item in local.containers_server : {
     address : item.ipv4_address,
     port : 443
   }]
